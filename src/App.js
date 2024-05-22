@@ -1,18 +1,12 @@
+import React from "react";
+import Weather from "./Weather";
 import "./App.css";
-import Form from "./Form";
-import Current from "./Current";
-import Footer from "./Footer";
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function App() {
   return (
     <div className="App weather-app">
-      <header>
-        <Form />
-      </header>
-      <main>
-        <Current />
-      </main>
-      <Footer />
+    <Weather />
     </div>
   );
 }
