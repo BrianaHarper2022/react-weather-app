@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaWind } from "react-icons/fa";
 
-export default function Weather() {
-    return(
+export default function Weather(props) {
+    const [weatherData, setWeatherData] = useState({ ready: false });
+    const [city, setCity] = useState(props.defaultCity);
+
+    function handleResponse(response) {
+        setWeatherData([
+            {
+          ready: true,
+          coordinates: response.data.coord,
+          temperature: response.data.temp,
+        humidity: response.data.humidity,
+          date: new Date(response.data.dt * 1000),
+          description: response.data.weather[0].description,
+          icon: response.data.weather[0].icon,
+          wind: response.data.wind.speed,
+          city: response.data.name,
+        }
+    ]);
+      }
+
+
+if (weatherData.ready) {
+    return (
         <div className="container">
             <div className="Weather-app">
                 <form className="mb-4">
@@ -26,16 +47,19 @@ export default function Weather() {
                 <div className="col-6">
                     <h1>Charlotte</h1>
                         <ul className="p-0">
-                            <li><span>Wednesday 05:19am</span>, Clear</li>
+                            <li><span>{weatherData}</span>, {weatherData.description}</li>
                             <li>Precipitation: 2%</li>
-                            <li>Humidity: 78%</li>
-                            <li>Wind: 3mph <FaWind /></li>
+                            <li>Humidity: {Math.round(weatherData.humidity)}%</li>
+                            <li>Wind: {Math.round(weatherData.wind)} <FaWind /></li>
                         </ul>
                 </div>
                 <div className="col-6">
                     <div className="details-container">
-                        <span><img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" />
-                        62°F</span>
+                        <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" className="float-left"/>
+                    <div className="float-left">
+                        <span>{Math.round(weatherData.temperature)}<span>
+                        </span>°F</span>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -46,4 +70,11 @@ export default function Weather() {
             </div>
         </div>
     );
-}
+} else {
+    const apiKey = "215576bab28022db35e6e64f040e1b56";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleResponse);
+    
+    return ("Loading...");
+
+}}
