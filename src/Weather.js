@@ -19,7 +19,7 @@ export default function Weather(props) {
           description: response.data.condition.description,
           icon: response.data.condition.icon,
           wind: response.data.wind.speed,
-          city: response.data.name,
+          city: response.data.city,
         });
       }
 
@@ -62,14 +62,13 @@ export default function Weather(props) {
                         <ul className="p-0">
                             <li><span>{weatherData.city}</span>,{" "}
                             {weatherData.description}</li>
-                            <li>Precipitation: 2%</li>
                             <li>Humidity: {Math.round(weatherData.humidity)}%</li>
                             <li>Wind: {Math.round(weatherData.wind)} <FaWind /></li>
                         </ul>
                 </div>
                 <div className="col-6">
                     <div className="details-container">
-                        <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" className="float-left"/>
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" className="float-left"/>
                     <div className="float-left">
                         <span>{Math.round(weatherData.temperature)}</span>
                     </div>
@@ -84,6 +83,7 @@ export default function Weather(props) {
         </div>
     );
 } else {
+    search()
     return "Loading...";
 }
 }
