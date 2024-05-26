@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import "./Weather.css";
 import { FaLocationDot } from "react-icons/fa6";
@@ -9,13 +10,12 @@ export default function Weather(props) {
     const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response) {
-        console.log(response.data);
         setWeatherData({
           ready: true,
           coordinates: response.data.coord,
           temperature: response.data.temperature.current,
           humidity: response.data.temperature.humidity,
-          date: new Date(response.data.dt * 1000),
+          date: new Date(response.data.time * 1000),
           description: response.data.condition.description,
           icon: response.data.condition.icon,
           wind: response.data.wind.speed,
@@ -60,7 +60,7 @@ export default function Weather(props) {
                 <div className="col-6">
                     <h1>{weatherData.city}</h1>
                         <ul className="p-0">
-                            <li><span>{weatherData.city}</span>,{" "}
+                            <li className="text-capitalize"><span><FormattedDate date={weatherData.date} /></span>{" "}
                             {weatherData.description}</li>
                             <li>Humidity: {Math.round(weatherData.humidity)}%</li>
                             <li>Wind: {Math.round(weatherData.wind)} <FaWind /></li>
