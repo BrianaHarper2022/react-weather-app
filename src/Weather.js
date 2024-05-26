@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
 import { FaLocationDot } from "react-icons/fa6";
-import { FaWind } from "react-icons/fa";
 
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ ready: false });
@@ -55,27 +54,9 @@ export default function Weather(props) {
                             </div>
                     </div>
                 </form>
-        <hr />
-            <div className="row weather-info mt-4">
-                <div className="col-6">
-                    <h1>{weatherData.city}</h1>
-                        <ul className="p-0">
-                            <li className="text-capitalize"><span><FormattedDate date={weatherData.date} /></span>{" "}
-                            {weatherData.description}</li>
-                            <li>Humidity: {Math.round(weatherData.humidity)}%</li>
-                            <li>Wind: {Math.round(weatherData.wind)} <FaWind /></li>
-                        </ul>
-                </div>
-                <div className="col-6">
-                    <div className="details-container">
-                    <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" className="float-left"/>
-                    <div className="float-left">
-                        <span>{Math.round(weatherData.temperature)}</span>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        <hr />
+            <hr />
+                <WeatherInfo data={weatherData} />
+            <hr />
             <footer>
                 <p>This project was coded by <a href="https://github.com/BrianaHarper2022" target="_blank" rel="noreferrer">Briana Harper</a> and is <a href="https://github.com/BrianaHarper2022?tab=repositories" target="_blank" rel="noreferrer">open-sourced on Github</a> and hosted on <a href="https://weather-app-react-final-project.netlify.app" target="_blank" rel="noreferrer">Netlify</a></p>
             </footer>
@@ -84,6 +65,8 @@ export default function Weather(props) {
     );
 } else {
     search()
-    return "Loading...";
+    return (
+        <h2 className="loading">Loading...</h2>
+    );
 }
 }
