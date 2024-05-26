@@ -10,8 +10,7 @@ export default function Weather(props) {
 
     function handleResponse(response) {
         console.log(response.data);
-        setWeatherData([
-            {
+        setWeatherData({
           ready: true,
           coordinates: response.data.coord,
           temperature: response.data.temperature.current,
@@ -21,9 +20,14 @@ export default function Weather(props) {
           icon: response.data.condition.icon,
           wind: response.data.wind.speed,
           city: response.data.name,
-        }
-    ]);
+        });
       }
+
+      function search() {
+        const apiKey = "a94b5f688aoee508a9b7fca6t23274ef";
+        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+        axios.get(apiUrl).then(handleResponse);
+    }
     
       function handleSubmit(event) {
         event.preventDefault();
@@ -33,15 +37,8 @@ export default function Weather(props) {
       function handleCityChange(event) {
         setCity(event.target.value);
       }
-    
-      function search() {
-        const apiKey = "a94b5f688aoee508a9b7fca6t23274ef";
-        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(handleResponse);
-      }
 
-
-if (weatherData.ready) {
+      if (weatherData.ready) {
     return (
         <div className="container">
             <div className="Weather-app">
@@ -61,9 +58,10 @@ if (weatherData.ready) {
         <hr />
             <div className="row weather-info mt-4">
                 <div className="col-6">
-                    <h1>Charlotte</h1>
+                    <h1>{weatherData.city}</h1>
                         <ul className="p-0">
-                            <li><span>{weatherData}</span>, {weatherData.description}</li>
+                            <li><span>{weatherData.city}</span>,{" "}
+                            {weatherData.description}</li>
                             <li>Precipitation: 2%</li>
                             <li>Humidity: {Math.round(weatherData.humidity)}%</li>
                             <li>Wind: {Math.round(weatherData.wind)} <FaWind /></li>
@@ -73,8 +71,7 @@ if (weatherData.ready) {
                     <div className="details-container">
                         <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" className="float-left"/>
                     <div className="float-left">
-                        <span>{Math.round(weatherData.temperature)}<span>
-                        </span>°F</span>
+                        <span>{Math.round(weatherData.temperature)}</span>
                     </div>
                     </div>
                 </div>
@@ -87,7 +84,6 @@ if (weatherData.ready) {
         </div>
     );
 } else {
-    search();
-    return ("Loading...");
-
-}}
+    return "Loading...";
+}
+}
