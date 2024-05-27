@@ -9,10 +9,10 @@
   padding: 30px;
   max-width: 700px;
   }
-  .search-input-container {
+.search-input-container {
     position: relative;
   }
-  .search-input{
+.search-input{
   background-color: #0D44A6;
   border: none;
   border-radius: 10px ;
@@ -23,7 +23,7 @@
   line-height: 20px;
   padding: 0 30px;
   }
-  .submit-button{
+.submit-button{
     background-color: #0D44A6;
     border: none;
     border-radius: 10px;
@@ -35,32 +35,54 @@
     padding: 0 20px;
     text-align: center;
   }
-  .submit-button:hover {
+.submit-button:hover {
     background-color: #00003B;
   }
-  .weather-info {
+.weather-info {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
   }
-  .details-container {
+.icon-temperature {
     font-size: 80px;
   }
- h1 {
+h1 {
     font-size: 50px;
   }
- ul {
+ul {
   list-style-type: none;
  }
- li {
+li {
   color: white;
   opacity: .8;
  }
- footer {
+.icon-temperature {
+  display: flex;
+}
+.current-temperature {
+  font-size: 88px;
+  margin: 0;
+  line-height: 88px;
+  display: inline;
+}
+.unit {
+  font-size: 22px;
+  position: relative;
+  top: -45px;
+}
+footer {
   color: white;
   font-size: 15px;
   opacity: .8;
- }
+}
+footer a {
+  color: #A2A1EE;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #00003B;
+  text-decoration: underline;
+}
 .location-icon {
   position: absolute;
   top: 50%;

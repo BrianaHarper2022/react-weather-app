@@ -9,6 +9,7 @@ export default function Weather(props) {
     const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response) {
+        console.log(response.data);
         setWeatherData({
           ready: true,
           coordinates: response.data.coord,
@@ -39,9 +40,8 @@ export default function Weather(props) {
 
       if (weatherData.ready) {
     return (
-        <div className="container">
             <div className="Weather-app">
-                <form className="mb-4" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-md-9">
                             <div className="search-input-container">
@@ -61,7 +61,6 @@ export default function Weather(props) {
                 <p>This project was coded by <a href="https://github.com/BrianaHarper2022" target="_blank" rel="noreferrer">Briana Harper</a> and is <a href="https://github.com/BrianaHarper2022?tab=repositories" target="_blank" rel="noreferrer">open-sourced on Github</a> and hosted on <a href="https://weather-app-react-final-project.netlify.app" target="_blank" rel="noreferrer">Netlify</a></p>
             </footer>
             </div>
-        </div>
     );
 } else {
     search()

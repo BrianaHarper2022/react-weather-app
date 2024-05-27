@@ -17,14 +17,14 @@ export default function WeatherInfo(props) {
                             <li>Wind: {Math.round(props.data.wind)} <FaWind /></li>
                         </ul>
                 </div>
-                <div className="col-6">
-                    <div className="details-container">
-                        <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" className="float-left"/>
-                    <div className="float-left">
-                        <span>{Math.round(props.data.temperature)}</span>
-                    </div>
-                    </div>
-                </div>
+
+
+                <div className="icon-temperature col-6">
+                        <h2 className="current-temperature">
+                             {Math.round(props.data.temperature)}
+                        <span className="unit">ºF</span>
+                     </h2>
+                </div> 
             </div>
         </div>
     );
