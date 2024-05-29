@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import CurrentTemperature from "./CurrentTemperature";
 import { FaWind } from "react-icons/fa";
 
 export default function WeatherInfo(props) {
@@ -19,13 +20,9 @@ export default function WeatherInfo(props) {
                             <li>Wind: {Math.round(props.data.wind)} <FaWind /></li>
                         </ul>
                 </div>
-
                 <div className="icon-temperature col-6">
-                        <h2 className="current-temperature">
-                        <WeatherIcon code={props.data.icon} size={52} />
-                             {Math.round(props.data.temperature)}
-                        <span className="unit">ºF</span>
-                     </h2>
+                    <WeatherIcon code={props.data.icon} size={72} />
+                    <CurrentTemperature celsius={props.data.temperature} />
                 </div> 
             </div>
         </div>

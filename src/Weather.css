@@ -43,9 +43,6 @@
     justify-content: space-between;
     margin: 0 auto;
   }
-.icon-temperature {
-    font-size: 80px;
-  }
 h1 {
     font-size: 50px;
   }
@@ -56,13 +53,9 @@ li {
   color: white;
   opacity: .8;
  }
-.icon-temperature {
-  display: flex;
-}
 .current-temperature {
-  font-size: 88px;
+  font-size: 72px;
   margin: 0;
-  line-height: 88px;
   display: inline;
 }
 .unit {
