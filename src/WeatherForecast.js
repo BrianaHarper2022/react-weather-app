@@ -1,32 +1,20 @@
 import React from "react";
+import WeatherIcon from "./WeatherIcon";
+import "./WeatherForecast.css";
 
 export default function WeatherForecast() {
     return (
-        <div className="WeatherForcast text-center">
+        <div className="WeatherForecast">
             <div className="row">
-                <div className="col">
-                    <ul>
-                        <li className="box">
-                            <span>Thurs</span>
-                            <span> 23°F</span>
-                        </li>
-                        <li className="box">
-                            <span>Fri</span>
-                            <span> 23°F</span>
-                        </li>
-                        <li className="box">
-                            <span>Sat</span>
-                            <span> 23°F</span>
-                        </li>
-                        <li className="box">
-                            <span>Sun</span>
-                            <span> 23°F</span>
-                        </li>
-                        <li className="box">
-                            <span>Mon</span>
-                            <span> 23°F</span>
-                        </li>
-                    </ul>
+                <div className="col Daily-Forecast">
+                    <div>
+                        <div className="WeatherForecast-day">Thu</div>
+                            <WeatherIcon code="clear-sky-day" size={36} />
+                        <div className="WeatherForecast-temperatures">
+                            <span className="WeatherForecast-temperature-max">19°</span>
+                            <span className="WeatherForecast-temperature-min">10°</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

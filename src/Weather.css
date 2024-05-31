@@ -63,25 +63,6 @@ li {
   position: relative;
   top: -45px;
 }
-/*.WeatherForcast ul {
-  padding-left: 0%;
-}*/
-.WeatherForcast li {
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 10px;
-  transition: all 0.3s ease;
-}
-.WeatherForcast li .box {
-  font-size: 2rem;
-  margin-bottom: 5px;
-}
-.WeatherForcast li:hover {
-  background: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
-  color: #222831;
-  transform: scale(1.1);
-}
 footer {
   color: white;
   font-size: 15px;
