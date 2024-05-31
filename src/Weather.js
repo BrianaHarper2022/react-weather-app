@@ -10,10 +10,9 @@ export default function Weather(props) {
     const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response) {
-        console.log(response.data);
         setWeatherData({
           ready: true,
-          coordinates: response.data.coord,
+          coordinates: response.data.coordinates,
           temperature: response.data.temperature.current,
           humidity: response.data.temperature.humidity,
           date: new Date(response.data.time * 1000),
@@ -57,7 +56,7 @@ export default function Weather(props) {
                 </form>
             <hr />
                 <WeatherInfo data={weatherData} />
-                <WeatherForecast />
+                <WeatherForecast coordinates={weatherData.coordinates} />
             <hr />
             <footer>
                 <p>This project was coded by <a href="https://github.com/BrianaHarper2022" target="_blank" rel="noreferrer">Briana Harper</a> and is <a href="https://github.com/BrianaHarper2022?tab=repositories" target="_blank" rel="noreferrer">open-sourced on Github</a> and hosted on <a href="https://weather-app-react-final-project.netlify.app" target="_blank" rel="noreferrer">Netlify</a></p>
