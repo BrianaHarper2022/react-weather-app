@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 export default function App() {
   return (
     <div className="App weather-app">
-    <Weather defaultCity="Charlotte" />
+      <Weather defaultCity="Charlotte" />
     </div>
   );
 }

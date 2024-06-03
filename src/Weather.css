@@ -10,8 +10,8 @@
   max-width: 700px;  
 }
 .search-input-container {
-    position: relative;
-  }
+  position: relative;
+}
 .search-input{
   background-color: #0D44A6;
   border: none;
@@ -22,7 +22,7 @@
   height: 50px; 
   line-height: 20px;
   padding: 0 30px;
-  }
+}
 .submit-button{
   background-color: #0D44A6;
   border: none;
@@ -34,25 +34,25 @@
   height: 50px;
   padding: 0 20px;
   text-align: center;
-  }
+}
 .submit-button:hover {
   background-color: #00003B;
-  }
+}
 .weather-info {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  }
+}
 h1 {
   font-size: 50px;
-  }
+}
 ul {
   list-style-type: none;
- }
+}
 li {
   color: white;
   opacity: .8;
- }
+}
 .current-temperature {
   font-size: 72px;
   margin: 0;
