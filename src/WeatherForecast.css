@@ -13,7 +13,7 @@
 }
 .Daily-Forecast:hover {
   transform: scale(1.1);
-  background: #0D44A6;
+  background: #00003B;
   color: white;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 }

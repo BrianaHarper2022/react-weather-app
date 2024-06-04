@@ -12,12 +12,10 @@ export default function WeatherInfo(props) {
                 <div className="col-6">
                     <h1>{props.data.city}</h1>
                         <ul className="p-0">
-                            <li className="text-capitalize">
-                                <span><FormattedDate date={props.data.date} />
-                                </span>{" "}
-                                {props.data.description}</li>
-                            <li>Humidity: {Math.round(props.data.humidity)}%</li>
-                            <li>Wind: {Math.round(props.data.wind)} <FaWind /></li>
+                            <li><FormattedDate date={props.data.date} /></li>
+                            <li>Humidity: <strong>{Math.round(props.data.humidity)}%</strong></li>
+                            <li>Wind: <strong>{Math.round(props.data.wind)} <FaWind /></strong></li>
+                            <li className="text-capitalize">{props.data.description}</li>
                         </ul>
                 </div>
                 <div className="icon-temperature col-6">
